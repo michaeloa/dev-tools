@@ -108,7 +108,7 @@
     dest: "{{ install_path }}/templates/repo/teamcity/{{ item }}"
     mode: 0644
   loop:
-    - pom-template
+    - pom-template.xml
     - settings-generic-template.kts
     - settings-gradle-template.kts
     - settings-maven-template.kts

@@ -25,7 +25,7 @@
     - role: arcanist_linters
       vars:
         install_path: "{{ devtools_path }}"
-#    # Install utility scripts/applications
-#    - role: install_utils
-#    # Inspection tests of the install
-#    - role: test_install
+    # Install utility scripts/applications
+    - role: install_utils
+    # Inspection tests of the install
+    - role: test_install

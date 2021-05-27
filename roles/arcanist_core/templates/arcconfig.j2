@@ -42,20 +42,7 @@
           "trigger": "patch-clean",
           "toolset": "arc",
           "command": [
-            "!git",
-            "branch",
-            "|",
-            "cut",
-            "-c3-",
-            "|",
-            "grep",
-            "arcpatch-",
-            "|",
-            "xargs",
-            "-n1",
-            "git",
-            "branch",
-            "-D"
+            "!arc-patch-clean"
           ]
         },
         {
@@ -75,8 +62,4 @@
           ]
         }
     ]
-        "patch-clean"  : ["!git branch | cut -c3- | grep arcpatch- | xargs -n1 git branch -D"],
-        "set-exe"      : ["!git update-index --chmod=+x"],
-        "status"       : ["!arc-status"]
-    }
 }

@@ -55,22 +55,17 @@
   become: yes
   ignore_errors: "{{ ansible_check_mode }}"
 
-- name: Set up arc-init
+- name: Set up arcanist scripts
   template:
-    src: arc-init.sh.j2
-    dest: /usr/local/bin/arc-init
+    src: "{{ item }}.sh.j2"
+    dest: /usr/local/bin/{{ item }}
     mode: 0755
   become: yes
+  loop:
+    - arc-init
+    - arc-patch-clean
+    - arc-status
   ignore_errors: "{{ ansible_check_mode }}"
-
-- name: Set up arc-status
-  template:
-    src: arc-status.sh.j2
-    dest: /usr/local/bin/arc-status
-    mode: 0755
-  become: yes
-  ignore_errors: "{{ ansible_check_mode }}"
-
 
 - name: Ensure template path exists
   file:

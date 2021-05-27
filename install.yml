@@ -10,7 +10,7 @@
       register: whoami
     - name: set the dev-tools user
       set_fact:
-        devtools_user: whoami.stdout
+        devtools_user: "{{ whoami.stdout }}"
     - name: set the dev-tools path
       set_fact:
         devtools_path: "/home/{{ devtools_user }}/.dev-tools"

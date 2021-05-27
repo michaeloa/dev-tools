@@ -16,10 +16,38 @@
           ]
         },
         {
+          "trigger": "git-root",
+          "toolset": "arc",
+          "command": [
+            "!cd",
+            "`git rev-parse --show-toplevel`"
+          ]
+        },
+        {
           "trigger": "init",
           "toolset": "arc",
           "command": [
             "!arc-init"
+          ]
+        },
+        {
+          "trigger": "ls",
+          "toolset": "arc",
+          "command": [
+            "!ls",
+            "-alh"
+          ]
+        },
+        {
+          "trigger": "lt",
+          "toolset": "arc",
+          "command": [
+            "!ls",
+            "--human-readable",
+            "--size",
+            "-1"
+            "-S",
+            "--classify"
           ]
         },
         {

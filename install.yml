@@ -18,7 +18,7 @@
     - role: arcanist_workstation
       vars:
         install_user: "{{ dev_user }}"
-        install_path: "{{ dev_tools }}"
+        install_path: "{{ devtools_path }}"
 #    # Install linters used by arcanist/dev workflow
 #    - role: install_linters
 #      vars:

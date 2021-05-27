@@ -1,2 +1,3 @@
 ---
-install_path: "{{ devtools_path }}"
+install_user: ""
+install_path: "~/.dev-tools"

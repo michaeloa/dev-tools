@@ -8,14 +8,17 @@
       become: false
       local_action: command whoami
       register: dev_user
+    - name: set the dev-tools path
+      set_fact:
+        devtools_path: "/home/{{ dev_user }}/.dev-too"
 
-    - debug: var=dev_user
 
-#  roles:
-#    # Install arcanist on the workstation
-#    - role: arcanist_workstation
-#      vars:
-#        install_path: "{{ devtools_path }}"
+  roles:
+    # Install arcanist on the workstation
+    - role: arcanist_workstation
+      vars:
+        install_user: "{{ dev_user }}"
+        install_path: "{{ dev_tools }}"
 #    # Install linters used by arcanist/dev workflow
 #    - role: install_linters
 #      vars:

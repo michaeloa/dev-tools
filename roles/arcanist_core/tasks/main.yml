@@ -78,6 +78,12 @@
     state: directory
     mode: 0755
 
+- name: Ensure teamcity template path exists
+  file:
+    path: "{{ install_path }}/templates/repo/teamcity"
+    state: directory
+    mode: 0755
+
 - name: Set up repo-related templates
   template:
     src: "repo/{{ item }}.j2"
@@ -85,12 +91,25 @@
     mode: 0644
   loop:
     - ansible-lint-template
+    - arcconfig-generic-template
     - arcconfig-gradle-template
     - arcconfig-maven-template
-    - arcconfig-none-template
+    - arcconfig-npm-template
     - arclint-template
     - CONTRIBUTING-template.md
     - gitattributes-template
     - gitignore-template
     - README-template.md
     - yamllint-template
+
+- name: Set up teamcity templates
+  template:
+    src: "repo/teamcity/{{ item }}.j2"
+    dest: "{{ install_path }}/templates/repo/teamcity/{{ item }}"
+    mode: 0644
+  loop:
+    - pom-template
+    - settings-generic-template.kts
+    - settings-gradle-template.kts
+    - settings-maven-template.kts
+    - settings-npm-template.kts
